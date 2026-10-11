@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body { font-family: 'Inter', sans-serif; }
+.scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
+.scrollbar::-webkit-scrollbar-track { background: #f1f1f1; }
+.scrollbar::-webkit-scrollbar-thumb { background: #c7d2fe; border-radius: 3px; }
+.scrollbar::-webkit-scrollbar-thumb:hover { background: #818cf8; }
+
+/* Resume print (Profile → Download Resume) */
+@media print {
+  body * { visibility: hidden; }
+  #resume, #resume * { visibility: visible; }
+  #resume { display: block !important; position: absolute; left: 0; top: 0; width: 100%; padding: 24px; }
+  html, body, #root, .shell, main { height: auto !important; overflow: visible !important; }
+}

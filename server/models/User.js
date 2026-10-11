@@ -1,0 +1,31 @@
+const m = require("mongoose"),
+  S = m.Schema,
+  id = S.Types.ObjectId;
+module.exports = m.model(
+  "User",
+  new S(
+    {
+      name: String,
+      email: { type: String, unique: true },
+      password: String,
+      role: { type: String, default: "student" },
+      mentorStatus: { type: String, default: "approved" },
+      active: { type: Boolean, default: true },
+      headline: String,
+      bio: String,
+      targetRole: String,
+      skills: [{ name: String, level: Number }],
+      resume: { summary: String, education: [String], experience: [String] },
+      expertise: [String],
+      rate: Number,
+      rating: { type: Number, default: 0 },
+      ratingCount: { type: Number, default: 0 },
+      points: { type: Number, default: 0 },
+      badges: [String],
+      gap: [String],
+      roadmap: [{ title: String, done: Boolean }],
+      mockScores: [Number],
+    },
+    { timestamps: true },
+  ),
+);
